@@ -35,8 +35,8 @@
 		</license>
 	</licenses>
 	<properties>
-		<wicket.version>6.6.0</wicket.version>
-		<jetty.version>7.6.3.v20120416</jetty.version>
+		<wicket.version>6.9.0</wicket.version>
+		<jetty.version>8.1.10.v20130312</jetty.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
@@ -77,7 +77,7 @@
 		<dependency>
 		    <groupId>org.seleniumhq.selenium</groupId>
 		    <artifactId>selenium-java</artifactId>
-		    <version>2.31.0</version>
+		    <version>2.33.0</version>
 		</dependency>
 	</dependencies>
 	
@@ -97,4 +97,42 @@
 		<module>wicket-selenium-tester-examples</module>
 		<module>wicket-selenium-tester</module>
 	</modules>
+
+<build>
+<plugins>
+<plugin>
+    <artifactId>maven-source-plugin</artifactId>
+    <executions>
+     <execution>
+      <id>attach-sources</id>
+      <goals>
+       <goal>jar</goal>
+      </goals>
+     </execution>
+    </executions>
+    <inherited>true</inherited>
+   </plugin>
+   <plugin>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <configuration>
+     <aggregate>true</aggregate>
+     <source>1.5</source>
+     <linksource>true</linksource>
+    </configuration>
+   </plugin>
+  </plugins>
+</build>
+<distributionManagement>
+                <repository>
+                        <id>madewithlove-releases</id>
+                        <name>madewithlove-releases</name>
+                        <url>http://artifactory.shoppingaid-cdn.cz/artifactory/libs-releases-local</url>
+                </repository>
+                <snapshotRepository>
+                        <id>madewithlove-snapshots</id>
+                        <name>madewithlove-snapshots</name>
+                        <url>http://artifactory.shoppingaid-cdn.cz/artifactory/libs-snapshots-local</url>
+                </snapshotRepository>
+        </distributionManagement>
+
 </project>
